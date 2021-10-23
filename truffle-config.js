@@ -1,3 +1,11 @@
+const path = require("path");
+const fs = require("fs");
+const secrets = JSON.parse(fs.readFileSync(".secrets.json").toString().trim());
+const PRIVATE_KEY = "";
+const INFURA_KEY = "";
+const ROPSTEN_KEY = "";
+const provider = require("@truffle/hdwallet-provider");
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -43,8 +51,8 @@ module.exports = {
     //
      development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 8545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "5777",       // Any network (default: none)
      },
     // Another network with more advanced options...
     // advanced: {
@@ -74,11 +82,11 @@ module.exports = {
   },
 
   // Set default mocha options here, use special reporters etc.
-  mocha: {
+ /*  mocha: {
     timeout: 100000
   },
 
-  // Configure your compilers
+ */  // Configure your compilers
   compilers: {
     solc: {
     version: "0.8.9",    // Fetch exact version from solc-bin (default: truffle's version)
